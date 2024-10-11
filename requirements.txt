@@ -1,0 +1,15 @@
+--extra-index-url https://download.pytorch.org/whl/cu118
+accelerate==0.28.0
+bitsandbytes==0.43.0
+datasets==2.18.0
+evaluate==0.4.2
+fairscale==0.4.13
+fire==0.6.0
+huggingface-hub==0.25.1
+openai==1.30.3
+pandas==2.2.1
+peft==0.10.0
+tiktoken==0.6.0
+tokenizers==0.15.2
+torch==2.2.2
+transformers==4.39.3

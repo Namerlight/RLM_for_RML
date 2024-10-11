@@ -1,0 +1,1 @@
+from run_predict import run_gpt2
