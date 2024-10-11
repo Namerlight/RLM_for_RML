@@ -2,6 +2,14 @@
 
 Robust Language Modelling for Truthful QA
 
+## setup
+
+* Python 3.11
+
+* a real gpu
+
+* ```pip install -r requirements.txt```
+
 ## To-Do
 
 * [ ] Set up dataset (truthfulQA) and preprocess it if needed
