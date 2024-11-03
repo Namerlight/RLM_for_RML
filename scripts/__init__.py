@@ -1,1 +1,1 @@
-from .run_predict import run_gpt2, models_list
+from .run_predict import answer_generator

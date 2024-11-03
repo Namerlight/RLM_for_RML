@@ -2,55 +2,52 @@
 # each of these functions will take an input text, then do the prediction, then return the output string
 # we're doing it this way because we might have to individually pre/post-process each model
 
+
 import torch
-from transformers import pipeline, set_seed
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-def run_gpt2(input_text: str, seed = None) -> [str]:
-    """
-    Processes input text in gpt2.
-
-    Args:
-        input_text: text to input
-        seed: seed for random number generator
-
-    Returns:
-        output text from gpt2. This is a list of strings (unless we change num_return_sequences later)
-    """
-
-    generator = pipeline('text-generation', model='gpt2')
-    if seed: set_seed(42)
-    output = generator(input_text, max_length=30, num_return_sequences=5)
-    generated_text = [gendictout['generated_text'] for gendictout in output]
-
-    return generated_text
 
 
-def run_gemma2_2B(input_text: str, seed = None) -> [str]:
-    """
-    Processes input text in gemma2.
-    Args:
-        input_text: text to input
-        seed: seed for random number generator
+class answer_generator:
+    def __init__(self, model):
 
-    Returns:
-        output text from gemma2.
-    """
+        models_list = {
+            "gpt2": "gpt2",
+            "gemma2_2B": "google/gemma-2-2b-it",
+            "llama3_1B": "meta-llama/Llama-3.2-1B",
+            "llama3_3B": "meta-llama/Llama-3.2-3B"
+        }
 
-    tokenizer = AutoTokenizer.from_pretrained("google/gemma-2-2b-it")
-    model = AutoModelForCausalLM.from_pretrained(
-        "google/gemma-2-2b-it", device_map="auto", torch_dtype=torch.bfloat16,
-    )
+        if models_list.get(model) is None:
+            available_models = "\n".join([key for key in models_list.keys()])
+            raise Exception(f'Model not found. The available models are:\n{available_models}')
 
-    input_text = input_text
-    input_ids = tokenizer(input_text, return_tensors="pt").to("cuda")
-
-    outputs = model.generate(**input_ids, max_new_tokens=32)
-
-    return tokenizer.decode(outputs[0])
+        hf_model_name = models_list.get(model)
+        self.tokenizer = AutoTokenizer.from_pretrained(pretrained_model_name_or_path=hf_model_name)
+        self.model = AutoModelForCausalLM.from_pretrained(
+            pretrained_model_name_or_path=hf_model_name, device_map="auto", torch_dtype=torch.bfloat16,
+        )
 
 
-models_list = {
-    "gpt2": run_gpt2,
-    "gemma2_2B": run_gemma2_2B
-}
+    def run_HF_models(self, input_text: str, seed = None) -> [str]:
+        """
+        Processes input text in gemma2's 2B model.
+        Args:
+            input_text: text to input
+            seed: seed for random number generator
+
+        Returns:
+            output text from gemma2.
+        """
+
+        input_text = input_text
+        input_ids = self.tokenizer(input_text, return_tensors="pt").to("cuda")
+        outputs = self.model.generate(**input_ids, max_new_tokens=32)
+        answer = self.tokenizer.decode(outputs[0])
+
+        special_tokens = set(self.tokenizer.all_special_tokens)
+
+        for token in special_tokens:
+            answer = answer.replace(token, "").strip()
+
+        return answer
