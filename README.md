@@ -27,5 +27,22 @@ pip install -r requirements.txt
 * [ ] then add the difference to the LM at inference time
 * [ ] coming soon
 
+## Types of Prompting
 
-Gemma 2: 0.88
+* Role Prompting
+* Style Prompting
+* Emotion Prompting
+* Rephrase and Respond
+* Re-reading (RE2)
+* Self-Ask
+* Zero-Shot-CoT
+* Step-Back Prompting
+* Least-to-Most Prompting
+* Self-Calibration
+* Self-Refine
+
+[The Prompt Report](https://arxiv.org/pdf/2406.06608)
+
+## Results
+
+Baseline - Gemma 2: 0.88 on TruthfulQA
