@@ -1,0 +1,10 @@
+{
+  "is_correct": 0.5,
+  "is_correct:std": 0.5,
+  "is_incorrect": 0.5,
+  "is_incorrect:std": 0.5,
+  "is_not_attempted": 0.0,
+  "is_not_attempted:std": 0.0,
+  "score:std": 0.5,
+  "score": 0.5
+}

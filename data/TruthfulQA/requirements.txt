@@ -1,0 +1,7 @@
+datasets
+numpy
+openai
+pandas
+sentencepiece
+transformers
+t5

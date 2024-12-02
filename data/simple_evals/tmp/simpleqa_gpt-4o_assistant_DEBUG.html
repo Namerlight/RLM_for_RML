@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .message {
+                padding: 8px 16px;
+                margin-bottom: 8px;
+                border-radius: 4px;
+            }
+            .message.user {
+                background-color: #B2DFDB;
+                color: #00695C;
+            }
+            .message.assistant {
+                background-color: #B39DDB;
+                color: #4527A0;
+            }
+            .message.system {
+                background-color: #EEEEEE;
+                color: #212121;
+            }
+            .role {
+                font-weight: bold;
+                margin-bottom: 4px;
+            }
+            .variant {
+                color: #795548;
+            }
+            table, th, td {
+                border: 1px solid black;
+            }
+            pre {
+                white-space: pre-wrap;
+            }
+        </style>
+    </head>
+    <body>
+    
+    <h1>Metrics</h1>
+    <table>
+    <tr>
+        <th>Metric</th>
+        <th>Value</th>
+    </tr>
+    <tr>
+        <td><b>Score</b></td>
+        <td>0.5</td>
+    </tr>
+    
+    <tr>
+        <td>is_correct</td>
+        <td>0.5</td>
+    </tr>
+    
+    <tr>
+        <td>is_correct:std</td>
+        <td>0.5</td>
+    </tr>
+    
+    <tr>
+        <td>is_incorrect</td>
+        <td>0.5</td>
+    </tr>
+    
+    <tr>
+        <td>is_incorrect:std</td>
+        <td>0.5</td>
+    </tr>
+    
+    <tr>
+        <td>is_not_attempted</td>
+        <td>0.0</td>
+    </tr>
+    
+    <tr>
+        <td>is_not_attempted:std</td>
+        <td>0.0</td>
+    </tr>
+    
+    <tr>
+        <td>score:std</td>
+        <td>0.5</td>
+    </tr>
+    
+    </table>
+    
+    <h1>Examples</h1>
+    
+    
+<h3>Prompt conversation</h3>
+
+
+<div class="message user">
+    <div class="role">
+    user 
+    
+    </div>
+    <div class="content">
+    <pre>In which year did the Japanese scientist Koichi Mizushima receive the Kato Memorial Prize?</pre>
+    </div>
+</div>
+
+<h3>Sampled message</h3>
+
+<div class="message assistant">
+    <div class="role">
+    assistant 
+    
+    </div>
+    <div class="content">
+    <pre>Koichi Mizushima received the Kato Memorial Prize in 2013.</pre>
+    </div>
+</div>
+<h3>Results</h3>
+<p>Correct Answer: 1999</p>
+<p>Extracted Answer: Koichi Mizushima received the Kato Memorial Prize in 2013.</p>
+<p>Score: False</p>
+    <hr>
+    
+    
+<h3>Prompt conversation</h3>
+
+
+<div class="message user">
+    <div class="role">
+    user 
+    
+    </div>
+    <div class="content">
+    <pre>In which year did Melbourne&#39;s Monash Gallery of Art (MGA) rebrand and become the Museum of Australian Photography (MAPh)?</pre>
+    </div>
+</div>
+
+<h3>Sampled message</h3>
+
+<div class="message assistant">
+    <div class="role">
+    assistant 
+    
+    </div>
+    <div class="content">
+    <pre>Melbourne&#39;s Monash Gallery of Art (MGA) rebranded and became the Museum of Australian Photography (MAPh) in 2023.</pre>
+    </div>
+</div>
+<h3>Results</h3>
+<p>Correct Answer: 2023</p>
+<p>Extracted Answer: Melbourne&#39;s Monash Gallery of Art (MGA) rebranded and became the Museum of Australian Photography (MAPh) in 2023.</p>
+<p>Score: True</p>
+    <hr>
+    
+    
+<h3>Prompt conversation</h3>
+
+
+<div class="message user">
+    <div class="role">
+    user 
+    
+    </div>
+    <div class="content">
+    <pre>Who was awarded the Oceanography Society&#39;s Jerlov Award in 2018?</pre>
+    </div>
+</div>
+
+<h3>Sampled message</h3>
+
+<div class="message assistant">
+    <div class="role">
+    assistant 
+    
+    </div>
+    <div class="content">
+    <pre>In 2018, the Oceanography Society&#39;s Jerlov Award was awarded to Dr. Curtis D. Mobley. The Jerlov Award is given to individuals who have made significant contributions to the advancement of our understanding of the interaction of light with the ocean.</pre>
+    </div>
+</div>
+<h3>Results</h3>
+<p>Correct Answer: Annick Bricaud</p>
+<p>Extracted Answer: In 2018, the Oceanography Society&#39;s Jerlov Award was awarded to Dr. Curtis D. Mobley. The Jerlov Award is given to individuals who have made significant contributions to the advancement of our understanding of the interaction of light with the ocean.</p>
+<p>Score: False</p>
+    <hr>
+    
+    
+<h3>Prompt conversation</h3>
+
+
+<div class="message user">
+    <div class="role">
+    user 
+    
+    </div>
+    <div class="content">
+    <pre>What is the name of the former Prime Minister of Iceland who worked as a cabin crew member until 1971?</pre>
+    </div>
+</div>
+
+<h3>Sampled message</h3>
+
+<div class="message assistant">
+    <div class="role">
+    assistant 
+    
+    </div>
+    <div class="content">
+    <pre>The former Prime Minister of Iceland who worked as a cabin crew member until 1971 is Jóhanna Sigurðardóttir. She served as Prime Minister from 2009 to 2013 and was Iceland&#39;s first female Prime Minister as well as the world&#39;s first openly gay head of government.</pre>
+    </div>
+</div>
+<h3>Results</h3>
+<p>Correct Answer: Jóhanna Sigurðardóttir</p>
+<p>Extracted Answer: The former Prime Minister of Iceland who worked as a cabin crew member until 1971 is Jóhanna Sigurðardóttir. She served as Prime Minister from 2009 to 2013 and was Iceland&#39;s first female Prime Minister as well as the world&#39;s first openly gay head of government.</p>
+<p>Score: True</p>
+    <hr>
+    
+    
+<h3>Prompt conversation</h3>
+
+
+<div class="message user">
+    <div class="role">
+    user 
+    
+    </div>
+    <div class="content">
+    <pre>What signature piece of the MOBA did Scott Wilson discover on the curb between two trash cans?</pre>
+    </div>
+</div>
+
+<h3>Sampled message</h3>
+
+<div class="message assistant">
+    <div class="role">
+    assistant 
+    
+    </div>
+    <div class="content">
+    <pre>Scott Wilson discovered the signature piece of the Museum of Bad Art (MOBA), titled &#34;Lucy in the Field with Flowers,&#34; on the curb between two trash cans. This painting became one of the most iconic pieces in the museum&#39;s collection.</pre>
+    </div>
+</div>
+<h3>Results</h3>
+<p>Correct Answer: Lucy in the Field with Flowers</p>
+<p>Extracted Answer: Scott Wilson discovered the signature piece of the Museum of Bad Art (MOBA), titled &#34;Lucy in the Field with Flowers,&#34; on the curb between two trash cans. This painting became one of the most iconic pieces in the museum&#39;s collection.</p>
+<p>Score: True</p>
+    <hr>
+    
+    
+<h3>Prompt conversation</h3>
+
+
+<div class="message user">
+    <div class="role">
+    user 
+    
+    </div>
+    <div class="content">
+    <pre>What were the month and year when Obama told Christianity Today, &#34;I am a Christian, and I am a devout Christian. I believe in the redemptive death and resurrection of Jesus Christ&#34;?</pre>
+    </div>
+</div>
+
+<h3>Sampled message</h3>
+
+<div class="message assistant">
+    <div class="role">
+    assistant 
+    
+    </div>
+    <div class="content">
+    <pre>Barack Obama made the statement &#34;I am a Christian, and I am a devout Christian. I believe in the redemptive death and resurrection of Jesus Christ&#34; in an interview with Christianity Today in January 2008.</pre>
+    </div>
+</div>
+<h3>Results</h3>
+<p>Correct Answer: January 2008</p>
+<p>Extracted Answer: Barack Obama made the statement &#34;I am a Christian, and I am a devout Christian. I believe in the redemptive death and resurrection of Jesus Christ&#34; in an interview with Christianity Today in January 2008.</p>
+<p>Score: True</p>
+    <hr>
+    
+    
+<h3>Prompt conversation</h3>
+
+
+<div class="message user">
+    <div class="role">
+    user 
+    
+    </div>
+    <div class="content">
+    <pre>What position was John Gilbert Layton appointed to in Quebec from 1969 until 1970?</pre>
+    </div>
+</div>
+
+<h3>Sampled message</h3>
+
+<div class="message assistant">
+    <div class="role">
+    assistant 
+    
+    </div>
+    <div class="content">
+    <pre>John Gilbert Layton was appointed as the head of the newly formed Transport Commission of Quebec from 1969 until 1970.</pre>
+    </div>
+</div>
+<h3>Results</h3>
+<p>Correct Answer:  Quebec Youth Parliament prime minister</p>
+<p>Extracted Answer: John Gilbert Layton was appointed as the head of the newly formed Transport Commission of Quebec from 1969 until 1970.</p>
+<p>Score: False</p>
+    <hr>
+    
+    
+<h3>Prompt conversation</h3>
+
+
+<div class="message user">
+    <div class="role">
+    user 
+    
+    </div>
+    <div class="content">
+    <pre>According to Karl Küchler, what did Empress Elizabeth of Austria&#39;s favorite sculpture depict, which was made for her villa Achilleion at Corfu?</pre>
+    </div>
+</div>
+
+<h3>Sampled message</h3>
+
+<div class="message assistant">
+    <div class="role">
+    assistant 
+    
+    </div>
+    <div class="content">
+    <pre>According to Karl Küchler, Empress Elizabeth of Austria&#39;s favorite sculpture, which was made for her villa Achilleion at Corfu, depicted the dying Achilles. This sculpture, created by the German sculptor Ernst Herter, shows Achilles at the moment of his death, with an arrow in his heel. The sculpture reflects Empress Elizabeth&#39;s fascination with Greek mythology and the heroic figure of Achilles.</pre>
+    </div>
+</div>
+<h3>Results</h3>
+<p>Correct Answer: Poet Henrich Heine.</p>
+<p>Extracted Answer: According to Karl Küchler, Empress Elizabeth of Austria&#39;s favorite sculpture, which was made for her villa Achilleion at Corfu, depicted the dying Achilles. This sculpture, created by the German sculptor Ernst Herter, shows Achilles at the moment of his death, with an arrow in his heel. The sculpture reflects Empress Elizabeth&#39;s fascination with Greek mythology and the heroic figure of Achilles.</p>
+<p>Score: False</p>
+    <hr>
+    
+    
+<h3>Prompt conversation</h3>
+
+
+<div class="message user">
+    <div class="role">
+    user 
+    
+    </div>
+    <div class="content">
+    <pre>Who appointed the Chief Justice of India, Mirza Hameedullah Beg, in 1977?</pre>
+    </div>
+</div>
+
+<h3>Sampled message</h3>
+
+<div class="message assistant">
+    <div class="role">
+    assistant 
+    
+    </div>
+    <div class="content">
+    <pre>Mirza Hameedullah Beg was appointed as the Chief Justice of India by the President of India at the time. In 1977, the President of India was Fakhruddin Ali Ahmed, who served until his death in February 1977, after which Basappa Danappa Jatti served as Acting President. Justice Beg became the Chief Justice of India on January 29, 1977.</pre>
+    </div>
+</div>
+<h3>Results</h3>
+<p>Correct Answer: Fakhruddin Ali Ahmed</p>
+<p>Extracted Answer: Mirza Hameedullah Beg was appointed as the Chief Justice of India by the President of India at the time. In 1977, the President of India was Fakhruddin Ali Ahmed, who served until his death in February 1977, after which Basappa Danappa Jatti served as Acting President. Justice Beg became the Chief Justice of India on January 29, 1977.</p>
+<p>Score: True</p>
+    <hr>
+    
+    
+<h3>Prompt conversation</h3>
+
+
+<div class="message user">
+    <div class="role">
+    user 
+    
+    </div>
+    <div class="content">
+    <pre>How much money, in euros, was the surgeon held responsible for Stella Obasanjo&#39;s death ordered to pay her son?</pre>
+    </div>
+</div>
+
+<h3>Sampled message</h3>
+
+<div class="message assistant">
+    <div class="role">
+    assistant 
+    
+    </div>
+    <div class="content">
+    <pre>The surgeon held responsible for Stella Obasanjo&#39;s death was ordered to pay €176,000 in compensation to her son.</pre>
+    </div>
+</div>
+<h3>Results</h3>
+<p>Correct Answer: 120,000</p>
+<p>Extracted Answer: The surgeon held responsible for Stella Obasanjo&#39;s death was ordered to pay €176,000 in compensation to her son.</p>
+<p>Score: False</p>
+    <hr>
+    
+    </body>
+</html>
