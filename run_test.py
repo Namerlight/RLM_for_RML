@@ -80,6 +80,9 @@ def eval(model, data, prompt, save, metrics_only = False):
     with open(os.path.join("results", "prompt_eng_results.txt"), 'a') as file:
         print(op, file=file)
 
+    # with open(os.path.join("results", "prompt_eng_results_2.txt"), 'a') as file:
+    #     print(op, file=file)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -89,7 +92,8 @@ if __name__ == "__main__":
 
     for qs_data in datasets:
 
-        prompts_list = ["Style", "Emotion", "Rephrase", "Reread", "Self-Ask", "Zero-Shot-CoT", "Step-Back", "Least-to-Most", "Self-Calibration"]
+        prompts_list = ["Rephrase", "Reread", "Self-Ask", "Zero-Shot-CoT"]
+        # prompts_list_2 = ["Step-Back", "Least-to-Most", "Self-Calibration"]
 
         d_set, s_set = {
             "truthfulqa": os.path.join("data", "TruthfulQA", "TruthfulQA.csv"),

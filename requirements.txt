@@ -1,6 +1,6 @@
 --extra-index-url https://download.pytorch.org/whl/cu118
 accelerate==0.28.0
-bitsandbytes==0.43.0
+bitsandbytes==0.42.0
 datasets==2.18.0
 evaluate==0.4.2
 fairscale==0.4.13

@@ -11,7 +11,7 @@ Run the following:
 ```bash
 cd data
 git clone https://github.com/sylinrl/TruthfulQA.git
-git clone https://github.com/openai/human-eval
+git clone https://github.com/openai/simple-evals.git
 cd ../
 pip install -r requirements.txt
 ```
@@ -46,3 +46,10 @@ pip install -r requirements.txt
 ## Results
 
 Baseline - Gemma 2: 0.88 on TruthfulQA
+
+
+## Running on Slurm
+
+```bash
+srun --mem=12000 --time=01:00:00 --gres=gpu:1 python run_test.py run
+```
