@@ -1,5 +1,5 @@
-from run_predict import models_list
+from scripts import get_list_of_models
 
-available_models = "\n".join([key for key in models_list.models_list.keys()])
+available_models = "\n".join([key for key in get_list_of_models().keys()])
 
-print("The models implemented are:\n", available_models)
+print("The models implemented are:", available_models, sep="\n")

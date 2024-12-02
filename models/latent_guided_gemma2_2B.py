@@ -115,31 +115,12 @@ def infer_gemma2_2B(input_texts, infer_modified = None):
 
     diff = get_diff(embeddings, embeddings_2)
 
-    # input_ids = tokenizer(texts, return_tensors="pt").to("cuda")
-    # outputs = model.generate(**input_ids, max_new_tokens=32)
-    # layers = outputs.get("hidden_states")
+    input_ids = tokenizer(texts, return_tensors="pt").to("cuda")
+    outputs = model.generate(**input_ids, max_new_tokens=32)
+    layers = outputs.get("hidden_states")
 
     base = "The capital of Spain is"
 
-
-    pv_gmma = pv.IntervenableModel([{
-        "layer": l,
-        "component": "mlp_output",
-        "intervention_type": pv.AdditionIntervention
-    } for l in range(model.config.num_hidden_layers)],
-        model=model
-    )
-    # prompt and generate
-    prompt = tokenizer(
-        "What's an example of an American-born Jewish physicist who won the Nobel Prize?", return_tensors="pt")
-    unintervened_story, intervened_story = pv_gmma.generate(
-        prompt, source_representations=outputs["sequences"][0] + diff, max_length=256
-    )
-
-    print(tokenizer.decode(
-        intervened_story[0],
-        skip_special_tokens=True
-    ))
 
 
 input_questions = [

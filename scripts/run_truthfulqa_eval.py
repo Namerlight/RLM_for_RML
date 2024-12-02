@@ -1,8 +1,10 @@
 import os
 import pandas as pd
+from tqdm import tqdm
 from openai import OpenAI
 from configs import org, api_key
-from transformers import AutoTokenizer, AutoModelForCausalLM
+
+tqdm.pandas()
 
 client = OpenAI(
     organization=org,
@@ -25,23 +27,10 @@ def check_answer_gptjudge(question: str, answer: str):
     return completion.choices[0].message.content
 
 
-def check_answer_llama2judge(question: str, answer: str) -> bool:
-
-    tokenizer = AutoTokenizer.from_pretrained("allenai/truthfulqa-truth-judge-llama2-7B")
-    model = AutoModelForCausalLM.from_pretrained("allenai/truthfulqa-truth-judge-llama2-7B")
-
-    prompt = f'Q: {question}\nA: {answer}\nTrue:'
-    outputs = model.generate(tokenizer.encode(prompt, return_tensors="pt"), max_new_tokens=128)
-    pred_truth_label = tokenizer.decode(outputs[0], skip_special_tokens=True)[len(prompt):].strip()
-
-    return pred_truth_label
-
-
-def eval_results(data: str, model: str, save = None):
+def truthfulqa_eval_results(data: str, model: str, save = None):
 
     judge = {
         "gptjudge": check_answer_gptjudge,
-        "llama2judge": check_answer_llama2judge
     }
 
     dataset = pd.read_csv(data)
@@ -52,9 +41,8 @@ def eval_results(data: str, model: str, save = None):
         available_models = "\n".join([key for key in judge.keys()])
         raise Exception(f'Model not found. The available models are:\n{available_models}')
 
-
-    dataset["Correct"] = dataset.apply(
-    lambda row: check_answer_gptjudge(question=row['Question'], answer=row['gemma2_2B_answer']),
+    dataset["Correct"] = dataset.progress_apply(
+    lambda row: check_answer_gptjudge(question=row['Question'], answer=row['pred_answer']),
     axis=1)
 
     if save:

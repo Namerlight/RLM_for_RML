@@ -1,0 +1,16 @@
+Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.csv | Prompt: None | Accuracy: 48.0%
+
+Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.csv | Prompt: Role | Accuracy: 22.0%
+
+Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.csv | Prompt: None | Accuracy: 44.0%
+
+Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.csv | Prompt: Style | Accuracy: 42.0%
+
+----- second run
+
+Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.csv | Prompt: None | Accuracy: 41.0%
+
+Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.csv | Prompt: Style | Accuracy: 38.0%
+
+Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.csv | Prompt: Emotion | Accuracy: 24.0%
+
