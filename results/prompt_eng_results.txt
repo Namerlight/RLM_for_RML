@@ -14,3 +14,7 @@ Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.c
 
 Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.csv | Prompt: Emotion | Accuracy: 24.0%
 
+Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.csv | Prompt: Rephrase | Accuracy: 38.0%
+
+Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.csv | Prompt: Reread | Accuracy: 45.0%
+

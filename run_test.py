@@ -77,11 +77,11 @@ def eval(model, data, prompt, save, metrics_only = False):
 
     op = f"Model: {model} | Data: {data} | Prompt: {prompt} | Accuracy: {accuracy}%\n"
 
-    with open(os.path.join("results", "prompt_eng_results.txt"), 'a') as file:
-        print(op, file=file)
-
-    # with open(os.path.join("results", "prompt_eng_results_2.txt"), 'a') as file:
+    # with open(os.path.join("results", "prompt_eng_results.txt"), 'a') as file:
     #     print(op, file=file)
+
+    with open(os.path.join("results", "prompt_eng_results_2.txt"), 'a') as file:
+        print(op, file=file)
 
 
 if __name__ == "__main__":
@@ -92,8 +92,8 @@ if __name__ == "__main__":
 
     for qs_data in datasets:
 
-        prompts_list = ["Rephrase", "Reread", "Self-Ask", "Zero-Shot-CoT"]
-        # prompts_list_2 = ["Step-Back", "Least-to-Most", "Self-Calibration"]
+        # prompts_list = ["Rephrase", "Reread", "Self-Ask", "Zero-Shot-CoT"]
+        prompts_list_2 = ["Self-Calibration"] # "Step-Back", "Least-to-Most", ]
 
         d_set, s_set = {
             "truthfulqa": os.path.join("data", "TruthfulQA", "TruthfulQA.csv"),
@@ -105,7 +105,7 @@ if __name__ == "__main__":
 
         data_path = d_set.get(qs_data)
 
-        for pr in prompts_list:
+        for pr in prompts_list_2:
 
             main(model=model_to_use, data=d_set.get(qs_data), save=s_set.get(qs_data), num_examples=100, prompt=pr)
             eval(model="simplejudge", data=s_set.get(qs_data), save=s_set.get(qs_data).replace(".csv", "_labelled.csv"), prompt=pr)

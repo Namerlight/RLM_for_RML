@@ -12,6 +12,7 @@ list_of_models = {
     "gemma2_2B": "google/gemma-2-2b-it",
     "llama3.2_1B": "meta-llama/Llama-3.2-1B",
     "llama3.2_3B": "meta-llama/Llama-3.2-3B",
+    "llama3_8B": "meta-llama/Meta-Llama-3-8B-Instruct",
 }
 
 types_of_prompts = [

@@ -14,3 +14,11 @@ Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.c
 
 Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.csv | Prompt: Emotion | Accuracy: 24.0%
 
+Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.csv | Prompt: Step-Back | Accuracy: 19.0%
+
+Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.csv | Prompt: Least-to-Most | Accuracy: 8.0%
+
+Model: simplejudge | Data: data\generated_answers\TruthfulQA_answers_gemma2_2B.csv | Prompt: Self-Calibration | Accuracy: 39.0%
+
+Model: simplejudge | Data: data\generated_answers\simple_qa_test_set_answers_gemma2_2B.csv | Prompt: Self-Calibration | Accuracy: 1.0%
+
