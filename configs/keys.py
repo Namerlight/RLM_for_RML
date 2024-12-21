@@ -1,2 +1,2 @@
-org = "org-wrTTGOG6dTwedVFE0qplndVr"
-api_key = "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"
+org = "removed"
+api_key = "removed"
